@@ -35,6 +35,7 @@ parser.add_argument("-mt", "--mtprefix", type=str, default="MT-", help="MT 基�
 parser.add_argument("-mg", "--mingene", type=int, default=100, help="最小基因测量数")
 # parser.add_argument("-s", "--species", type=str, nargs="+", default=None, help="输出Merge的h5ad, 根据物种基因组mapping率 分发")
 args = parser.parse_args(exam)
+os.makedirs(os.path.dirname(args.output), exist_ok=True)
 
 subdir = sorted(os.listdir(args.input), key=LooseVersion)
 print(f"Find {len(subdir)} Subs in dir: {args.input}")
